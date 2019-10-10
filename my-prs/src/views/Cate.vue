@@ -10,18 +10,15 @@
         <van-sidebar v-model="activeKey">
             <van-sidebar-item title="全部" @click="change(0)">
             </van-sidebar-item>
-            <van-sidebar-item 
-            v-for="(item,index) in catedata" 
-            :title="item.brandName" 
-            :key="index"
-            @click="change(index+1)">
+            <van-sidebar-item v-for="(item,index) in catedata" :title="item.brandName" :key="index"
+                @click="change(index+1)">
             </van-sidebar-item>
         </van-sidebar>
         <van-grid :border="false" :column-num="3">
             <van-grid-item v-for="(item,index) in cateitem" :key="index">
-                <div @click="recycle">
+                <div @click="jump('/recycle')">
                     <img :src="'https://www.qupingce.com'+item.img" /></div>
-                    <p class='phoneName'>{{item.versionName}}</p>
+                <p class='phoneName'>{{item.versionName}}</p>
             </van-grid-item>
             <h2 class="load-more" @click="loadMore">{{notice}}</h2>
         </van-grid>
@@ -62,33 +59,33 @@
                 })
         },
         mounted() {
-            let sidebar=document.getElementsByClassName('van-sidebar')[0];
-            let grid=document.getElementsByClassName('van-grid')[0]
+            let sidebar = document.getElementsByClassName('van-sidebar')[0];
+            let grid = document.getElementsByClassName('van-grid')[0]
             // console.log(window.screen.height)
-            grid.style.height=sidebar.style.height=window.screen.height*0.75+"px"
+            grid.style.height = sidebar.style.height = window.screen.height * 0.75 + "px"
         },
         methods: {
-            recycle(){
-                this.$axios.get(`/getAllVfoInfoForMain`).then((response) => {
-                        console.log(response)
-                    })
+            jump(str) {
+                this.$router.push({
+                    path: str //router中的path属性就指当前要跳转的路径
+                })
             },
             classify(name, title) {
                 // 修改商品的分类(手机，平板等))
-                this.isShow=true
+                this.isShow = true
                 this.ppc = name
-                    this.$axios.get(`/api/page/getAllBrandByType?type=${name}`).then((response) => {
-                        this.catedata = response.data.data;
-                        this.$axios.get(
-                                `/api/page/ChooseTypeByBrandByPage?brandId=${this.brandId}&type=${this.ppc}&page=${this.num}&limit=15`
-                            )
-                            .then((
-                                response) => {
-                                // console.log(response)
-                                this.cateitem = response.data.data;
-                                this.isShow=false
-                            })
-                    })
+                this.$axios.get(`/api/page/getAllBrandByType?type=${name}`).then((response) => {
+                    this.catedata = response.data.data;
+                    this.$axios.get(
+                            `/api/page/ChooseTypeByBrandByPage?brandId=${this.brandId}&type=${this.ppc}&page=${this.num}&limit=15`
+                        )
+                        .then((
+                            response) => {
+                            // console.log(response)
+                            this.cateitem = response.data.data;
+                            this.isShow = false
+                        })
+                })
             },
             change(x) {
                 // 修改商品品牌
@@ -144,6 +141,7 @@
         float: left;
         height: 75%;
     }
+
     .van-grid {
         overflow: auto;
         align-content: flex-start;

@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Cate from './views/Cate.vue'
+import Recycle from './views/Recycle.vue'
 
 Vue.use(Router)
 
@@ -12,6 +13,11 @@ export default new Router({
       path: '/',
       name: 'home',
       component: Cate
+    },
+    {
+      path: '/recycle',
+      name: 'recycle',
+      component: Recycle
     },
   ]
 })
