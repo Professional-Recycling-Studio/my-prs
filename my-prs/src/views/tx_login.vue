@@ -17,7 +17,7 @@
     <!-- logo -->
     <div class="formLogo">
       <img src="../assets/image/logo.png" width="100" alt />
-      <h2>趣 评 测, 一 站 式 数 码 交 易</h2>
+      <h2 style="color: white;">PRS专业回收机构，给您前所未有的回收体验</h2>
     </div>
     <!-- 验证方式 -->
     <ul class="chose_box">

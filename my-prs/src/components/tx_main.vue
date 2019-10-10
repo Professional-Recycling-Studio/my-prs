@@ -8,7 +8,7 @@
     <!-- 回收品类头 -->
     <div class="sort">
       <h2>回收品类</h2>
-      <router-link to="/">更多类别&nbsp;>&emsp;</router-link>
+      <router-link to="/cate">更多类别&nbsp;>&emsp;</router-link>
     </div>
 
     <!-- 回收品类 -->

@@ -1,7 +1,7 @@
 <template>
   <div>
     <van-sticky>
-        <van-nav-bar :title="versionName" left-arrow  @click-left="onClickLeft('/')"/>
+        <van-nav-bar :title="versionName" left-arrow  @click-left="onClickLeft('/cate')"/>
         <h5 class="progress" >当前进度</h5>
         <van-progress :percentage="10" color="#00b08e" />
     </van-sticky>

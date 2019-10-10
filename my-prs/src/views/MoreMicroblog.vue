@@ -13,6 +13,11 @@
     </ul>
     <!-- 加载更多 -->
     <h2 @click="fn">点击加载更多~</h2>
+    <van-popup v-model="isShow">
+        <van-loading size="60px" color="white">
+            <span style="color: white;font-size: 20px">加载中</span>
+        </van-loading>
+    </van-popup>
   </div>
 </template>
 
@@ -23,7 +28,8 @@
       return {
         MoreMicroblog: [],
         page: 1,
-        limit: 8
+        limit: 8,
+        isShow:false
       };
     },
     components: {
@@ -42,6 +48,7 @@
     },
     methods: {
       fn() {
+        this.isShow=true;
         this.page++;
         this.limit=this.page*8;
         this.$axios
@@ -50,6 +57,7 @@
           )
           .then(res => {
             this.MoreMicroblog = this.MoreMicroblog.concat(res.data.data) ;
+            this.isShow=false
             // console.log(this.MoreMicroblog);
           });
         // console.log(this.page, this.limit);

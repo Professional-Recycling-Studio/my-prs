@@ -1,7 +1,7 @@
 <template>
   <header>
     <a href class="location">
-      <img src="../assets/image/logo.png" width="56" alt />
+      <img src="../assets/image/logo.png" width="45" alt />
     </a>
     <router-link to="/" tag="p">
       <van-icon name="search" />搜索您想要回收的产品
@@ -26,7 +26,7 @@
     z-index: 99;
     display: flex;
     align-items: center;
-    border-bottom: 1px solid #f2f2f2;
+    /* border-bottom: 1px solid #f2f2f2; */
   }
   header .location {
     display: block;

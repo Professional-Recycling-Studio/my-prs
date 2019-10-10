@@ -1,7 +1,9 @@
 <template>
     <div>
+
         <van-sticky>
-            <van-tabs @click="classify" sticky color="orange">
+            <search></search>
+            <van-tabs @click="classify" sticky color="#00b08e">
                 <van-tab name="phone" title="手机"></van-tab>
                 <van-tab name="pad" title="平板"></van-tab>
                 <van-tab name="computer" title="笔记本"></van-tab>
@@ -27,9 +29,13 @@
                 <span style="color: white;font-size: 20px">加载中</span>
             </van-loading>
         </van-popup>
+        <bottom-nav></bottom-nav>
     </div>
 </template>
 <script>
+    import Nav from '@/components/tx_nav.vue'
+    import Search from '@/components/tx_search.vue'
+
     export default {
         data() {
             return {
@@ -42,6 +48,10 @@
                 notice: '点击加载更多', //提示文字
                 ppc: 'phone'
             };
+        },
+        components: {
+            'bottom-nav': Nav,
+            'search': Search
         },
         created() {
             //创建时显示手机的分类
@@ -65,12 +75,12 @@
             grid.style.height = sidebar.style.height = window.screen.height * 0.75 + "px"
         },
         methods: {
-            jump(str,x) {
+            jump(str, x) {
                 // console.log(item)
                 this.$router.push({
                     path: str, //router中的path属性就指当前要跳转的路径
-                    query:{
-                        item:x
+                    query: {
+                        item: x
                     }
                 })
             },
@@ -165,7 +175,10 @@
         width: 100%;
         text-align: center;
     }
-
+    .van-tabs{
+        margin-top: 59px;
+        margin-bottom: 1px;
+    }
     .phoneName {
         height: 20px;
         font-size: 14px;
@@ -179,5 +192,8 @@
 
     .van-grid-item {
         height: 150px !important;
+    }
+    .van-sidebar-item--select{
+        border-color: #00b08e !important;
     }
 </style>

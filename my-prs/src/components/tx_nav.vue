@@ -5,7 +5,7 @@
       <img src="../assets/image/home_select.png" alt />
     </router-link>
     <!--<p>分类</p>-->
-    <router-link to="/" class="cartIcon">
+    <router-link to="/cate" class="cartIcon">
       <img src="../assets/image/type.png" alt />
     </router-link>
     <!--<p>我的</p>-->
