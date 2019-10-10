@@ -1,6 +1,12 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
+import search from './components/tx_search.vue'
+import main from './components/tx_main.vue'
+import tx_nav from './components/tx_nav.vue'
+import login from './views/tx_login.vue'
+import MoreMicroblog from './views/MoreMicroblog.vue'
+
 
 Vue.use(Router)
 
@@ -11,15 +17,25 @@ export default new Router({
     {
       path: '/',
       name: 'home',
-      component: Home
+      components: {
+        search,
+        main,
+        tx_nav,
+      }
     },
     {
-      path: '/about',
-      name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
-    }
+      path: '/login',
+      name: 'login',
+      components: {
+        login,
+      }
+    },
+    {
+      path: '/microblog',
+      name: 'microblog',
+      components: {
+        MoreMicroblog,
+      }
+    },
   ]
 })
