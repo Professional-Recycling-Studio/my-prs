@@ -16,7 +16,7 @@
         </van-sidebar>
         <van-grid :border="false" :column-num="3">
             <van-grid-item v-for="(item,index) in cateitem" :key="index">
-                <div @click="jump('/recycle')">
+                <div @click="jump('/recycle',item)">
                     <img :src="'https://www.qupingce.com'+item.img" /></div>
                 <p class='phoneName'>{{item.versionName}}</p>
             </van-grid-item>
@@ -65,9 +65,13 @@
             grid.style.height = sidebar.style.height = window.screen.height * 0.75 + "px"
         },
         methods: {
-            jump(str) {
+            jump(str,x) {
+                // console.log(item)
                 this.$router.push({
-                    path: str //router中的path属性就指当前要跳转的路径
+                    path: str, //router中的path属性就指当前要跳转的路径
+                    query:{
+                        item:x
+                    }
                 })
             },
             classify(name, title) {
