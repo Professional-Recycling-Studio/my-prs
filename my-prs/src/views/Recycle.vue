@@ -6,6 +6,7 @@
       <van-progress :percentage="pro" color="#00b08e" />
     </van-sticky>
     <recycle-process v-for="(item,index) in rdata" :key="index" :data="item" :index="index"></recycle-process>
+    <van-button type="primary" to="/estimated" color="#00b08e" size="large" v-if="show">立即估价</van-button>
   </div>
 </template>
 <script>
@@ -16,13 +17,17 @@
   export default {
     data() {
       return {
-        versionName: 'PRS回收',
+        versionName: '普锐斯(PRS)回收',
         rdata: {},
+        isShow: false
       }
     },
     computed: {
       pro() {
         return parseInt(this.$store.getters.pro.toFixed(0))
+      },
+      show() {
+        return this.$store.state.isShow
       }
     },
     components: {
@@ -47,9 +52,9 @@
           this.$router.push({
             path: str
           })
-        }).catch(() => {
-        });
-      }
+        }).catch(() => {});
+      },
+
     },
   }
 </script>
@@ -59,6 +64,11 @@
     margin: 0;
     padding: 5px 0;
     color: white;
+  }
+
+  .van-progress__portion,
+  .van-progress__pivot {
+    transition: all 1s;
   }
 
   .van-progress {

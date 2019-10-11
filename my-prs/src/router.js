@@ -7,6 +7,7 @@ import login from './views/tx_login.vue'
 import MoreMicroblog from './views/MoreMicroblog.vue'
 import Cate from './views/Cate.vue'
 import Recycle from './views/Recycle.vue'
+import Estimated from './views/Estimated.vue'
 
 
 Vue.use(Router)
@@ -46,6 +47,11 @@ export default new Router({
       path: '/recycle',
       name: 'recycle',
       component: Recycle
+    },
+    {
+      path: '/estimated',
+      name: 'Estimated',
+      component: Estimated
     },
   ]
 })

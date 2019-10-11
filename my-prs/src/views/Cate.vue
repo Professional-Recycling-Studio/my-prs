@@ -3,7 +3,7 @@
 
         <van-sticky>
             <search></search>
-            <van-tabs @click="classify" sticky color="#00b08e">
+            <van-tabs @click="classify"  color="#00b08e">
                 <van-tab name="phone" title="手机"></van-tab>
                 <van-tab name="pad" title="平板"></van-tab>
                 <van-tab name="computer" title="笔记本"></van-tab>

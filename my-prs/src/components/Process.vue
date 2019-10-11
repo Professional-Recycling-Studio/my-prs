@@ -5,7 +5,7 @@
         </p>
         <div class="items">
             <van-button type="default" class="item" v-for="(item,index) in data" :key="index" ref="choose"
-                @click="choose(index)" :class="num==index?'on':''">{{item.name}}</van-button>
+                @click="choose($event,index)" :class="num==index?'on':''">{{item.name}}</van-button>
         </div>
         <span v-show="false">{{disnon}}</span>
     </div>
@@ -15,36 +15,51 @@
         data() {
             return {
                 num: -1,
-                isShow:false,
-                names:['子型号','内存','颜色','购买渠道','是否有以下特殊情况','机身外观','屏幕外观','屏幕显示','维修情况','是否带原装配件','其他特殊情况(可多选或不选)']
+                isShow: false,
+                names: ['子型号', '内存', '颜色', '购买渠道', '是否有以下特殊情况', '机身外观', '屏幕外观', '屏幕显示', '维修情况', '是否带原装配件',
+                    '其他特殊情况(可多选或不选)'
+                ],
             }
         },
         props: {
             data: Array,
             index: String
         },
-        computed:{
-            disnon(){
+        computed: {
+            disnon() {
                 return this.$store.state.num
             }
         },
         created() {
             // console.log(this.data)
             // console.log(this.index)
-            if(this.index=='0'){
-                this.isShow=true
+            if (this.index == '0') {
+                this.isShow = true
             }
         },
         updated() {
-            if(this.$store.state.num>=parseInt(this.index)){
-                this.isShow=true
+            if (this.$store.state.num >= parseInt(this.index)) {
+                this.isShow = true
+            }else {
+                this.isShow=false
             }
         },
         methods: {
-            choose(x) {
+            choose(e,x) {
+                var m=this.names[parseInt(this.index)]
+                var n=e.target.children[0].innerHTML
+                this.$store.commit('add',[m,n])
                 this.num = x;
-                this.$store.commit('alter',this.index)
-
+                if ((x == 0 || x == 1) && this.index == '4') {
+                    this.$store.commit('alter',3)
+                    this.$store.commit('chr',true)
+                } else {
+                    this.$store.commit('alter', this.index)
+                    this.$store.commit('chr',false)
+                }
+                if(this.index=='9'||this.index=='10'){
+                    this.$store.commit('chr',true)
+                }
             }
         },
     }
@@ -88,7 +103,8 @@
         font-size: 14px;
         background-color: #00b08e !important;
     }
-    .on .van-button__text{
+
+    .on .van-button__text {
         color: white !important;
     }
 
@@ -97,7 +113,7 @@
     }
 
     .van-button__text {
-        
+
         font-size: 12px;
     }
 </style>
