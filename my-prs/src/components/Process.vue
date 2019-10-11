@@ -1,12 +1,13 @@
 <template>
-    <div>
+    <div v-show="isShow">
         <p class="title">
-            <span>{{index.split('|')[0]}}</span>
+            <span>{{names[index]}}</span>
         </p>
         <div class="items">
             <van-button type="default" class="item" v-for="(item,index) in data" :key="index" ref="choose"
                 @click="choose(index)" :class="num==index?'on':''">{{item.name}}</van-button>
         </div>
+        <span v-show="false">{{disnon}}</span>
     </div>
 </template>
 <script>
@@ -14,19 +15,36 @@
         data() {
             return {
                 num: -1,
+                isShow:false,
+                names:['子型号','内存','颜色','购买渠道','是否有以下特殊情况','机身外观','屏幕外观','屏幕显示','维修情况','是否带原装配件','其他特殊情况(可多选或不选)']
             }
         },
         props: {
             data: Array,
             index: String
         },
+        computed:{
+            disnon(){
+                return this.$store.state.num
+            }
+        },
         created() {
             // console.log(this.data)
             // console.log(this.index)
+            if(this.index=='0'){
+                this.isShow=true
+            }
+        },
+        updated() {
+            if(this.$store.state.num>=parseInt(this.index)){
+                this.isShow=true
+            }
         },
         methods: {
             choose(x) {
-                this.num = x
+                this.num = x;
+                this.$store.commit('alter',this.index)
+
             }
         },
     }

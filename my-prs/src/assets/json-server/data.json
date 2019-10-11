@@ -20,7 +20,7 @@
     }, {
         "product_info": [
             {
-            "子型号|46aa334bcb9944bf958bb1159b69aa16|true|basicSelect": [{
+            "0": [{
                 "hasDetail": false,
                 "isSpecial": "false",
                 "price": 0,
@@ -35,7 +35,7 @@
                 "second_price": 100,
                 "option_id": "74a84f296c8f4a7b9d1c264e10a9520e"
             }],
-            "内存|57b83ae9cb234953aaf798affeb848e6|true|basicSelect": [{
+            "1": [{
                 "hasDetail": false,
                 "isSpecial": "false",
                 "price": 0,
@@ -57,7 +57,7 @@
                 "second_price": 1500,
                 "option_id": "e4b102e412854b3d95f35922377c6a53"
             }],
-            "颜色|99fcf242257e4c56bfd059f41f023e45|false|basicSelect": [{
+            "2": [{
                 "hasDetail": false,
                 "isSpecial": "false",
                 "price": 0,
@@ -100,7 +100,7 @@
                 "second_price": 0,
                 "option_id": "d9988fc5025e4cc9bc5fc0dfbaf65ddf"
             }],
-            "购买渠道|a56da4b7414a4bd59449647ab102c949|false|basicSelect": [{
+            "3": [{
                 "hasDetail": true,
                 "isSpecial": "false",
                 "price": 0,
@@ -122,7 +122,7 @@
                 "second_price": 400,
                 "option_id": "d5f889800fe84093b002bd8eb52e0f53"
             }],
-            "是否有以下特殊情况|a47a4320b0cc47c48a70ccb13efa9561|false|specialSelect": [{
+            "4": [{
                 "hasDetail": true,
                 "isSpecial": "true",
                 "price": 0,
@@ -142,7 +142,7 @@
                 "price": 0.1,
                 "name": "都不是，下一步"
             }],
-            "机身外观|dbd78ca96be14ebf8357dfcd4f2ce691|false|otherSelect": [{
+            "5": [{
                 "hasDetail": true,
                 "isSpecial": "false",
                 "price": 1,
@@ -178,7 +178,7 @@
                 "second_price": 0,
                 "option_id": "6c17ffa64d23471e9950bf07e9acd6ab"
             }],
-            "屏幕外观|0204db2f10b54a74a8ea68a17d44d542|false|otherSelect": [{
+            "6": [{
                 "hasDetail": true,
                 "isSpecial": "false",
                 "price": 1,
@@ -207,7 +207,7 @@
                 "second_price": 0,
                 "option_id": "642558216bce406999599b82e2cc8928"
             }],
-            "屏幕显示|f4ee2ffd91d740f6b83d41511a9f1347|false|otherSelect": [{
+            "7": [{
                 "hasDetail": true,
                 "isSpecial": "false",
                 "price": 1,
@@ -236,7 +236,7 @@
                 "second_price": 0,
                 "option_id": "6e247e0f95aa4e528334a53bec568251"
             }],
-            "维修情况|e84856df2902496aab2b67e3f89330c6|false|otherSelect": [{
+            "8": [{
                 "hasDetail": true,
                 "isSpecial": "false",
                 "price": 1,
@@ -272,7 +272,7 @@
                 "second_price": 0,
                 "option_id": "b8af367c912a40398a6fcc7974bbdd28"
             }],
-            "是否带原装配件|ef2e07042e12406cbb8560ba6d679652|false|otherSelect": [{
+            "9": [{
                 "hasDetail": false,
                 "isSpecial": "false",
                 "price": 1,
@@ -322,7 +322,7 @@
                 "second_price": 0,
                 "option_id": "2416eb6215934a83ac659001278c0b47"
             }],
-            "其他特殊情况(可多选或不选)|1b10aee32cba428c8f45cfef9509da84|false|multiSelect": [{
+            "10": [{
                 "hasDetail": false,
                 "isSpecial": "false",
                 "price": 100,
