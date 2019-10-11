@@ -1,12 +1,20 @@
 <template>
   <div>
     <van-sticky>
-      <van-nav-bar :title="versionName" left-arrow @click-left="onClickLeft('/cate')" />
+      <van-nav-bar :title="vn" left-arrow @click-left="onClickLeft('/cate')" />
       <h5 class="progress">当前进度</h5>
       <van-progress :percentage="pro" color="#00b08e" />
     </van-sticky>
     <recycle-process v-for="(item,index) in rdata" :key="index" :data="item" :index="index"></recycle-process>
-    <van-button type="primary" to="/estimated" color="#00b08e" size="large" v-if="show">立即估价</van-button>
+    <van-button type="primary"
+
+     @click="res"
+     color="#00b08e" size="large" v-if="show">立即估价</van-button>
+    <van-popup v-model="mshow">
+      <van-loading size="60px" color="white">
+          <span style="color: white;font-size: 20px">估价中...</span>
+      </van-loading>
+  </van-popup>
   </div>
 </template>
 <script>
@@ -17,12 +25,15 @@
   export default {
     data() {
       return {
-        versionName: '普锐斯(PRS)回收',
         rdata: {},
-        isShow: false
+        isShow: false,
+        mshow:false
       }
     },
     computed: {
+      vn(){
+        return this.$store.state.phoneName
+      },
       pro() {
         return parseInt(this.$store.getters.pro.toFixed(0))
       },
@@ -39,9 +50,6 @@
         // console.log(res.data[2].product_info[0])
         this.rdata = res.data[2].product_info[0]
       })
-      if (this.$route.query.item.versionName) {
-        this.versionName = this.$route.query.item.versionName
-      }
     },
     methods: {
       onClickLeft(str) {
@@ -54,7 +62,15 @@
           })
         }).catch(() => {});
       },
-
+      res(){
+        this.mshow=true;
+        setTimeout(()=>{
+          this.mshow=false
+          this.$router.push({
+            path:'/estimated'
+          })
+        },2000)
+      }
     },
   }
 </script>

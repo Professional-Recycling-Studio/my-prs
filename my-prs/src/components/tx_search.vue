@@ -1,9 +1,9 @@
 <template>
   <header>
-    <a href class="location">
+    <router-link to="/" class="location">
       <img src="../assets/image/logo.png" width="45" alt />
-    </a>
-    <router-link to="/" tag="p">
+    </router-link>
+    <router-link to="/search" tag="p">
       <van-icon name="search" />搜索您想要回收的产品
     </router-link>
   </header>

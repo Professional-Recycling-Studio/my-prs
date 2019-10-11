@@ -2,17 +2,17 @@
   <div>
     <!-- 头部 -->
     <header>
-      <router-link to="/" class="backIcon">
+      <a @click="res('/')" class="backIcon">
         <van-icon name="wap-home-o" />
-      </router-link>
+      </a>
       <h1>登录</h1>
-      <router-link
-        to="/"
+      <a
+        @click="res('/enroll')"
         class="setIcon"
         style=" 
         color: #fff;
         font-weight: bold;"
-      >注册</router-link>
+      >注册</a>
     </header>
     <!-- logo -->
     <div class="formLogo">
@@ -80,6 +80,11 @@
       <a style="float: left" class="fr">&nbsp;一周内免登录</a>
       <router-link to="/" style="float: right;margin-right:12px">未设置或忘记密码?</router-link>
     </div>
+    <van-popup v-model="isShow">
+      <van-loading size="60px" color="white">
+          <span style="color: white;font-size: 20px">加载中...</span>
+      </van-loading>
+  </van-popup>
   </div>
 </template>
 
@@ -88,9 +93,21 @@
     data() {
       return {
         img1: true,
-        img2: false
+        img2: false,
+        isShow:false
       };
-    }
+    },
+    methods: {
+      res(x){
+        this.isShow=true
+        setTimeout(() => {
+          this.isShow=false
+          this.$router.push({
+            path:x
+          })
+        }, 1000);
+      }
+    },
   };
 </script>
 
@@ -134,6 +151,7 @@
     /* margin-top: 1rem; */
     background: #00b08e;
     overflow: hidden;
+    text-align: center;
   }
   .formLogo h2 {
     font-size: 0.2rem;

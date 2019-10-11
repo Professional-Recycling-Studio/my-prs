@@ -3,7 +3,7 @@
 
         <van-sticky>
             <search></search>
-            <van-tabs @click="classify"  color="#00b08e">
+            <van-tabs @click="classify" color="#00b08e">
                 <van-tab name="phone" title="手机"></van-tab>
                 <van-tab name="pad" title="平板"></van-tab>
                 <van-tab name="computer" title="笔记本"></van-tab>
@@ -26,7 +26,7 @@
         </van-grid>
         <van-popup v-model="isShow">
             <van-loading size="60px" color="white">
-                <span style="color: white;font-size: 20px">加载中</span>
+                <span style="color: white;font-size: 20px">加载中...</span>
             </van-loading>
         </van-popup>
         <bottom-nav></bottom-nav>
@@ -67,6 +67,9 @@
                     // console.log(response)
                     this.cateitem = response.data.data;
                 })
+            // setTimeout(()=>{
+            //     this.isShow=false
+            // },1000)
         },
         mounted() {
             let sidebar = document.getElementsByClassName('van-sidebar')[0];
@@ -76,13 +79,14 @@
         },
         methods: {
             jump(str, x) {
-                // console.log(item)
-                this.$router.push({
-                    path: str, //router中的path属性就指当前要跳转的路径
-                    query: {
-                        item: x
-                    }
-                })
+                this.isShow = true
+                setTimeout(() => {
+                    this.isShow=false
+                    this.$router.push({
+                        path: str, //router中的path属性就指当前要跳转的路径
+                    })
+                    this.$store.commit('phone', x.versionName)
+                }, 500);
             },
             classify(name, title) {
                 // 修改商品的分类(手机，平板等))
@@ -175,10 +179,12 @@
         width: 100%;
         text-align: center;
     }
-    .van-tabs{
+
+    .van-tabs {
         margin-top: 59px;
         margin-bottom: 1px;
     }
+
     .phoneName {
         height: 20px;
         font-size: 14px;
@@ -193,7 +199,8 @@
     .van-grid-item {
         height: 150px !important;
     }
-    .van-sidebar-item--select{
+
+    .van-sidebar-item--select {
         border-color: #00b08e !important;
     }
 </style>

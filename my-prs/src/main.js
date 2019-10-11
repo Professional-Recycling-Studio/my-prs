@@ -6,6 +6,8 @@ import Vant from 'vant'
 import 'vant/lib/index.css'
 import axios from 'axios'
 
+import { DropdownMenu, DropdownItem } from 'vant';
+Vue.use(DropdownMenu).use(DropdownItem);
 Vue.use(Vant);
 Vue.config.productionTip = false
 Vue.prototype.$axios = axios

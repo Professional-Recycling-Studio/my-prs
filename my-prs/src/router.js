@@ -8,7 +8,10 @@ import MoreMicroblog from './views/MoreMicroblog.vue'
 import Cate from './views/Cate.vue'
 import Recycle from './views/Recycle.vue'
 import Estimated from './views/Estimated.vue'
-
+import faq from './views/FAQ.vue'
+import enroll from './views/tx_enroll.vue'
+import SearchPhone from './views/SearchPhone.vue'
+import Order from './views/Order.vue'
 
 Vue.use(Router)
 
@@ -52,6 +55,26 @@ export default new Router({
       path: '/estimated',
       name: 'Estimated',
       component: Estimated
+    },
+    {
+      path: '/faq',
+      name: 'faq',
+      component: faq
+    },
+    {
+      path: '/enroll',
+      name: 'enroll',
+      component: enroll
+    },
+    {
+      path: '/search',
+      name: 'search',
+      component: SearchPhone
+    },
+    {
+      path: '/order',
+      name: 'order',
+      component: Order
     },
   ]
 })

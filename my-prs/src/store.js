@@ -7,9 +7,22 @@ export default new Vuex.Store({
       state: {
         num: 0,
         isShow: false,
-        info: []
+        info: [],
+        history: [],
+        phoneName:''
       },
       mutations: {
+        cart(state, name) {
+          var bool = false;
+          state.history.forEach((d) => {
+            if (d != name) {
+              bool = true
+            }
+          })
+          if (bool) {
+            state.history.push(name)
+          }
+        },
         alter(state, x) {
           state.num = parseInt(x) + 1
         },
@@ -33,6 +46,23 @@ export default new Vuex.Store({
               state.info.splice(i,1)
             }
           }
+        },
+        phone(state,x){
+          state.phoneName=x
+        },
+        clear(state){
+          state.history=[]
+        },
+        phoneHis(state,x){
+          if(state.history.length==0){
+            state.history.push(x)
+          }
+          state.history.forEach((val)=>{
+            if(x==val){
+              return
+            }
+            state.history.push(x)
+          })
         }
         },
         getters: {

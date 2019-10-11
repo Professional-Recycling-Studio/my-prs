@@ -71,7 +71,7 @@
     <div class="categoryLiIcon recycle_process">
       <div class="sort">
         <h2>回收流程</h2>
-        <router-link to="/">常见问题&emsp;</router-link>
+        <router-link to="/faq">常见问题&emsp;</router-link>
       </div>
       <ul>
         <li>
@@ -384,6 +384,7 @@
     width: 300px;
     margin: 0 auto;
     height: 50px;
+    text-align: center;
   }
   .footer_info > ul > li {
     float: left;
@@ -395,6 +396,7 @@
     padding: 0;
     display: flex;
     align-items: center;
+    justify-content: center;
   }
   .footer_info > ul > li > img {
     margin-right: 5px;

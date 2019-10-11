@@ -9,7 +9,12 @@
             </li>
             <li class="list-item" v-for="(item,index) in info" :key="index">{{item[0]}}:{{item[1]}}</li>
         </ul>
-        <van-button class="mbtn" type="primary" color="#00b08e" size="large">立即回收</van-button>
+        <van-button class="mbtn" type="primary" color="#00b08e" size="large" @click="res">立即回收</van-button>
+        <van-popup v-model="mshow">
+            <van-loading size="60px" color="white">
+                <span style="color: white;font-size: 20px">加载中...</span>
+            </van-loading>
+        </van-popup>
     </div>
 
 </template>
@@ -20,7 +25,10 @@
     } from 'vant';
     export default {
         data() {
-            return {}
+            return {
+                isShow: false,
+                mshow:false
+            }
         },
         components: {
             [Dialog.Component.name]: Dialog.Component
@@ -35,9 +43,11 @@
             info() {
                 return this.$store.state.info
             },
-            price(){
-                if (this.$store.state.info.length<7){
+            price() {
+                if (this.$store.state.info.length < 7) {
                     return 200
+                } else {
+                    return parseInt(Math.random() * (6000 - 4000 + 1) + 4000)
                 }
             }
         },
@@ -52,6 +62,15 @@
                     })
                 }).catch(() => {});
             },
+            res() {
+                this.mshow = true;
+                setTimeout(() => {
+                    this.mshow = false
+                    this.$router.push({
+                        path: '/order'
+                    })
+                }, 2000)
+            }
         },
     }
 </script>
@@ -69,9 +88,10 @@
     }
 
     ul {
-        margin: 20px 0!important;
+        margin: 20px 0 !important;
     }
-    .mbtn{
-        margin: 20px 0!important;
+
+    .mbtn {
+        margin: 20px 0 !important;
     }
 </style>

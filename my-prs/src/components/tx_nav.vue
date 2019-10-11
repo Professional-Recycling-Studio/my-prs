@@ -1,22 +1,47 @@
 <template>
-  <nav>
-    <!--<p>首页</p>-->
-    <router-link to="/" class="homeIcon">
-      <img src="../assets/image/home_select.png" alt />
-    </router-link>
-    <!--<p>分类</p>-->
-    <router-link to="/cate" class="cartIcon">
-      <img src="../assets/image/type.png" alt />
-    </router-link>
-    <!--<p>我的</p>-->
-    <router-link to="/login" class="userIcon">
-      <img src="../assets/image/mine.png" alt />
-    </router-link>
-  </nav>
+  <div>
+    <nav>
+      <!--<p>首页</p>-->
+      <a @click="go('/')" class="homeIcon">
+        <img src="../assets/image/home_select.png" alt />
+    </a>
+      <!--<p>分类</p>-->
+      <a @click="go('/cate')" class="cartIcon">
+        <img src="../assets/image/type.png" alt />
+      </a>
+      <!--<p>我的</p>-->
+      <a @click="go('/login')" class="userIcon">
+        <img src="../assets/image/mine.png" alt />
+      </a>
+    </nav>
+    <van-popup v-model="isShow">
+      <van-loading size="60px" color="white">
+        <span style="color: white;font-size: 20px">加载中...</span>
+      </van-loading>
+    </van-popup>
+  </div>
 </template>
 
 <script>
-  export default {};
+  export default {
+    data() {
+      return {
+        isShow: false
+      }
+    },
+    methods: {
+      go(x) {
+        this.isShow = true,
+        setTimeout(()=>{
+        this.isShow = false,
+
+          this.$router.push({
+            path:x
+          })
+        },1000)
+      }
+    },
+  };
 </script>
 
 <style>
@@ -37,13 +62,15 @@
     align-items: center;
     background-color: #fff;
   }
+
   nav a {
     text-align: center;
     color: #000;
     line-height: 1.2;
     font-weight: bolder;
   }
-  nav>a img{
+
+  nav>a img {
     width: 28px;
     height: 28px;
   }
