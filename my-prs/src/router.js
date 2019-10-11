@@ -7,6 +7,9 @@ import login from './views/tx_login.vue'
 import MoreMicroblog from './views/MoreMicroblog.vue'
 import Cate from './views/Cate.vue'
 import Recycle from './views/Recycle.vue'
+import faq from './views/FAQ.vue'
+import enroll from './views/tx_enroll.vue'
+import SearchPhone from './views/SearchPhone.vue'
 
 
 Vue.use(Router)
@@ -46,6 +49,21 @@ export default new Router({
       path: '/recycle',
       name: 'recycle',
       component: Recycle
+    },
+    {
+      path: '/faq',
+      name: 'faq',
+      component: faq
+    },
+    {
+      path: '/enroll',
+      name: 'enroll',
+      component: enroll
+    },
+    {
+      path: '/search',
+      name: 'search',
+      component: SearchPhone
     },
   ]
 })

@@ -7,7 +7,7 @@
       </router-link>
       <h1>登录</h1>
       <router-link
-        to="/"
+        to="/enroll"
         class="setIcon"
         style=" 
         color: #fff;

@@ -3,7 +3,7 @@
     <a href class="location">
       <img src="../assets/image/logo.png" width="56" alt />
     </a>
-    <router-link to="/" tag="p">
+    <router-link to="/search" tag="p">
       <van-icon name="search" />搜索您想要回收的产品
     </router-link>
   </header>

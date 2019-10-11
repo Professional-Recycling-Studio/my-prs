@@ -71,7 +71,7 @@
     <div class="categoryLiIcon recycle_process">
       <div class="sort">
         <h2>回收流程</h2>
-        <router-link to="/">常见问题&emsp;</router-link>
+        <router-link to="/faq">常见问题&emsp;</router-link>
       </div>
       <ul>
         <li>
