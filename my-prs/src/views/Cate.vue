@@ -55,6 +55,7 @@
         },
         created() {
             //创建时显示手机的分类
+            this.isShow=true
             this.$axios.get('/api/page/getAllBrandByType?type=phone').then((response) => {
                 this.catedata = response.data.data;
             })
@@ -66,6 +67,7 @@
                     response) => {
                     // console.log(response)
                     this.cateitem = response.data.data;
+                    this.isShow=false
                 })
             // setTimeout(()=>{
             //     this.isShow=false

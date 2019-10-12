@@ -14,28 +14,27 @@
     <!-- 验证码登录 -->
     <ul class="formarea" v-if="img1">
       <van-cell-group>
-        <van-field  clearable label="联系电话:" right-icon="question-o" @click-right-icon="$toast('question')" placeholder="请输入电话号码" />
-        <van-field  center clearable label="短信验证码:" placeholder="请输入短信验证码">
+        <van-field clearable label="联系电话:" right-icon="question-o" @click-right-icon="$toast('question')"
+          placeholder="请输入电话号码" />
+        <van-field center clearable label="短信验证码:" placeholder="请输入短信验证码">
           <van-button slot="button" size="small" color='#00b08e' type="primary">发送验证码</van-button>
         </van-field>
         <van-dropdown-menu>
-            <van-dropdown-item v-model="value1" :options="option1" />
+          <van-dropdown-item v-model="value1" :options="option1" />
         </van-dropdown-menu>
-        <van-field  clearable label="收款账户:" placeholder="非常重要，请认真填写" />
-        <van-field  clearable label="收款人:"  placeholder="请输入真实姓名"" />
+        <van-field clearable label="收款账户:" placeholder="非常重要，请认真填写" />
+        <van-field clearable label="收款人:" placeholder="请输入真实姓名"" />
         <van-dropdown-menu>
-            <van-dropdown-item v-model="value2" :options="option2" />
+            <van-dropdown-item v-model=" value2" :options="option2" />
         </van-dropdown-menu>
-        <van-field  clearable label="序列号/IMEI" placeholder="IMEI" />
+        <van-field clearable label="序列号/IMEI" placeholder="IMEI" />
       </van-cell-group>
     </ul>
     <!-- 密码登录 -->
-    <ul class="formarea" v-if="img2">
-        地图
-
-    </ul>
-    <van-button type="primary"
-    color="#00b08e" size="large" >立即估价</van-button>
+    <div class="formarea pic" v-if="img2">
+        <img src="../assets/image/map.png" alt="">
+    </div>
+    <van-button type="primary" color="#00b08e" size="large">提交订单</van-button>
   </div>
 </template>
 <script>
@@ -49,20 +48,36 @@
         img2: false,
         value1: 0,
         value2: 'a',
-        option1: [
-        { text: '选择收款方式', value: 0 },
-        { text: '支付宝', value: 1 },
-        { text: '微信', value: 2 }
-      ],
-      option2: [
-        { text: '机器来源', value: 'a' },
-        { text: '活动所得', value: 'b' },
-        { text: '他人赠送', value: 'c' },
-      ]
+        option1: [{
+            text: '选择收款方式',
+            value: 0
+          },
+          {
+            text: '支付宝',
+            value: 1
+          },
+          {
+            text: '微信',
+            value: 2
+          }
+        ],
+        option2: [{
+            text: '机器来源',
+            value: 'a'
+          },
+          {
+            text: '活动所得',
+            value: 'b'
+          },
+          {
+            text: '他人赠送',
+            value: 'c'
+          },
+        ]
       }
     },
     components: {
-      [Dialog.Component.name]: Dialog.Component
+      [Dialog.Component.name]: Dialog.Component,
     },
     methods: {
       onClickLeft(str) {
@@ -109,7 +124,10 @@
     font-weight: bold;
     color: white;
   }
-
+  .pic{
+    margin: 20px 0 !important;
+    text-align: center;
+  }
   .setIcon {
     display: block;
     color: white;

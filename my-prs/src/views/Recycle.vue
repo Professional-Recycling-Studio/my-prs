@@ -46,10 +46,8 @@
       [Dialog.Component.name]: Dialog.Component
     },
     created() {
-      this.$axios.get('http://localhost:3005/data').then((res) => {
-        // console.log(res.data[2].product_info[0])
-        this.rdata = res.data[2].product_info[0]
-      })
+      console.log(this.$store.state.data.data[2].product_info[0])
+        this.rdata = this.$store.state.data.data[2].product_info[0]
     },
     methods: {
       onClickLeft(str) {

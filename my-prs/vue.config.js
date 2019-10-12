@@ -8,7 +8,14 @@ module.exports = {
                 pathRewrite: {
                     '^/api': ''
                 }
-            }
+            },
+            '/code': {
+                target: 'https://sso.qupingce.com',
+                changeOrigin: true,
+                pathRewrite: {
+                    '^/code': ''
+                }
+            },
         }
     }
 }

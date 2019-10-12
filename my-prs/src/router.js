@@ -12,6 +12,7 @@ import faq from './views/FAQ.vue'
 import enroll from './views/tx_enroll.vue'
 import SearchPhone from './views/SearchPhone.vue'
 import Order from './views/Order.vue'
+import Center from './views/Center.vue'
 
 Vue.use(Router)
 
@@ -75,6 +76,11 @@ export default new Router({
       path: '/order',
       name: 'order',
       component: Order
+    },
+    {
+      path: '/center',
+      name: 'order',
+      component: Center
     },
   ]
 })
